@@ -10,4 +10,7 @@ public interface DeviceRepository extends JpaRepository<Device, Long> {
 
     @Query(value = "SELECT * FROM device WHERE imei =?1",nativeQuery = true)
     List<Device> getDeviceByImei(long imei);
+
+    @Query(value = "SELECT * FROM device WHERE user_id =?1",nativeQuery = true)
+    List<Device> getDevicesByUserId(long userId);
 }

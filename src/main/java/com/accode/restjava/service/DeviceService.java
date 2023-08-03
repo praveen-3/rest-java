@@ -29,6 +29,10 @@ public class DeviceService {
         return deviceRepository.getDeviceByImei(imei);
     }
 
+    public List<Device> getDeviceByUserId(long userId) {
+        return deviceRepository.getDevicesByUserId(userId);
+    }
+
     public Device updateDevice(Device device) {
         Device existingDevice = deviceRepository.findById(device.getId()).orElseThrow(()-> new IllegalArgumentException("Device not found"));
         if(existingDevice!=null) {

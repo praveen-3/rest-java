@@ -37,6 +37,12 @@ public class DeviceController {
         return deviceService.getDeviceByImei(imei);
     }
 
+    @GetMapping("/devices-by-userId")
+    public List<Device> getDevicesByUserId(@RequestParam(name = "userId") long userId) {
+        return deviceService.getDeviceByUserId(userId);
+    }
+
+
     @PatchMapping("/device")
     public ResponseEntity<Device> updateDevice(@RequestBody Device device){
         Device updateDevice = deviceService.updateDevice(device);
