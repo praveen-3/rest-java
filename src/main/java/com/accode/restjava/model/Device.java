@@ -28,4 +28,7 @@ public class Device {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "user_id",nullable = false)
+    private long userId;
+
 }
