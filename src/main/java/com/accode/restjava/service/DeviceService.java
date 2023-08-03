@@ -28,4 +28,24 @@ public class DeviceService {
     public List<Device> getDeviceByImei(long imei) {
         return deviceRepository.getDeviceByImei(imei);
     }
+
+    public Device updateDevice(Device device) {
+        Device existingDevice = deviceRepository.findById(device.getId()).orElseThrow(()-> new IllegalArgumentException("Device not found"));
+        if(existingDevice!=null) {
+            if(device.getName()!=null) {
+                existingDevice.setName(device.getName());
+            }
+            if(device.getStatus()!=-1) {
+                existingDevice.setStatus(device.getStatus());
+            }
+            if(device.getType()!=null) {
+                existingDevice.setType(device.getType());
+            }
+            if(device.getPassword()!=null) {
+                existingDevice.setPassword(device.getPassword());
+            }
+            deviceRepository.save(existingDevice);
+        }
+        return existingDevice;
+    }
 }

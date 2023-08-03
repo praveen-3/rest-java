@@ -36,4 +36,10 @@ public class DeviceController {
     public List<Device> getDeviceByImei(@RequestParam(name = "imei") long imei) {
         return deviceService.getDeviceByImei(imei);
     }
+
+    @PatchMapping("/device")
+    public ResponseEntity<Device> updateDevice(@RequestBody Device device){
+        Device updateDevice = deviceService.updateDevice(device);
+        return new ResponseEntity<>(updateDevice,HttpStatus.OK);
+    }
 }

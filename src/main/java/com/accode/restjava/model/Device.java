@@ -25,4 +25,7 @@ public class Device {
     @Column(name = "type")
     private String type;
 
+    @Column(name = "name")
+    private String name;
+
 }
